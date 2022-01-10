@@ -8,3 +8,8 @@ SELECT O.CustomerID, CO.CompanyName
 FROM orders O 
 JOIN Customers CO
 	ON O.CustomerID = CO.CustomerID;
+
+--pour afficher toutes les infos des clients
+SELECT *
+FROM Customers
+WHERE CustomerID NOT IN ( SELECT O.CustomerID FROM Orders O);
