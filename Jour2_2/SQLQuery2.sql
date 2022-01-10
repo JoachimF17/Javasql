@@ -1,5 +1,7 @@
-SELECT DISTINCT ShipCountry AS Name
+SELECT IDENTITY(INT, 1, 1) AS CountryID, Name
 INTO Countries
+FROM 
+(SELECT DISTINCT ShipCountry AS Name
 FROM Orders
 UNION
 SELECT Country
@@ -9,6 +11,8 @@ SELECT Country
 FROM Suppliers
 UNION
 SELECT Country
-FROM Employees;
+FROM Employees) AS TableIntermediaire
+ORDER BY Name;
 SELECT *
 FROM Countries;
+DROP TABLE Countries;
