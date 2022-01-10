@@ -13,3 +13,10 @@ JOIN Customers CO
 SELECT *
 FROM Customers
 WHERE CustomerID NOT IN ( SELECT O.CustomerID FROM Orders O);
+
+--left outer join
+SELECT *
+FROM Customers C
+LEFT OUTER JOIN Orders O
+ON O.CustomerID = C.CustomerID
+WHERE OrderID IS NULL;
